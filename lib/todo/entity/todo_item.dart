@@ -3,23 +3,22 @@ class TodoItem {
       {required this.id,
         required this.title,
         required this.body,
-        required this.createdAt,
+        this.createdAt,
         required this.updatedAt,
-        required this.isDone});
+        this.isDone});
 
   final int id;
   String title;
   String body;
-  final DateTime createdAt;
+  final DateTime? createdAt;
   DateTime updatedAt;
-  bool isDone;
+  bool? isDone;
 
   // define getter
   int get getId => id;
   String get getTitle => '$title';
   String get getBody => '$body';
   DateTime get getUpdatedAt => updatedAt;
-  bool get getIsDone => isDone;
 
   // For interacting with local DB.
   Map<String, dynamic> toMap() {
@@ -27,9 +26,9 @@ class TodoItem {
       'id': id,
       'title': title,
       'body': body,
-      'createdAt': createdAt.toUtc().toIso8601String(),
+      'createdAt': createdAt!.toUtc().toIso8601String(),
       'updatedAt': updatedAt.toUtc().toIso8601String(),
-      'isDone': isDone ? 1 : 0,
+      'isDone': isDone! ? 1 : 0,
     };
   }
 
