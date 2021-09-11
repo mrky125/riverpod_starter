@@ -8,9 +8,9 @@ abstract class TodoItemRepository {
     required DateTime now,
   });
 
-  Future<List<TodoItem>> findAll({bool? viewCompletedItems});
+  Future<List<TodoItem>?> findAll({bool? viewCompletedItems});
 
-  Future<TodoItem> find({required int id});
+  Future<TodoItem?> find({required int id});
 
   Future<void> update({required TodoItem todoItem});
 
