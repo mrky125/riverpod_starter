@@ -15,7 +15,13 @@ class InheritedHomePage extends StatefulWidget {
 
 /// State
 class _InheritedPageState extends State<InheritedHomePage> {
-  var _counter = 1;
+  var _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +37,7 @@ class _InheritedPageState extends State<InheritedHomePage> {
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            // const定義できる
-            // _Labelは変更と関わらないのでリビルドしない、_Messageは変更によりリビルドする
+            // 変更通知とリビルドするかと切り離してconst定義できる
             children: const <Widget>[
               _Label(),
               _Message(),
@@ -40,7 +45,7 @@ class _InheritedPageState extends State<InheritedHomePage> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () => setState(() => _counter++),
+          onPressed: _incrementCounter,
           tooltip: 'Increment',
           child: Icon(Icons.add),
         ),
