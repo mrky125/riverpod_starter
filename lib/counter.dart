@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riverpod_starter/data/app_dio.dart';
 
 final countStateProvider = StateProvider((ref) => 0);
 
@@ -20,7 +21,11 @@ class CounterApp extends HookConsumerWidget {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () => ref.read(countStateProvider).state = count + 1,
+          onPressed: () {
+            ref.read(countStateProvider).state = count + 1;
+            final dio = ref.watch(dioProvider);
+            print('dio: ${dio.options}');
+          },
           child: Icon(Icons.add),
         ),
       ),
