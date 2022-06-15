@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_starter/inherited_page.dart';
 
+/// test
 void main() {
   // runApp(ProviderScope(
   //   child: CounterApp(),
